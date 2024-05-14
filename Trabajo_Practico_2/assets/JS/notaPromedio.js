@@ -9,6 +9,7 @@ if (
   nota2 < 1 ||
   nota3 > 10 ||
   nota3 < 1
+  
 ) {
   alert("El rango de notas es del 1 al 10");
 } else if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
