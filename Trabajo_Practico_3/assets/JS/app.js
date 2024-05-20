@@ -1,12 +1,24 @@
-menu = 1;
+
+const regex = /^\S+$/;
+let menu = 0;
 let list = [];
 
+
 function CREATE(x) {
-    push.list(x);
+    if (regex.test(x)) {
+        list.push(x);
+    } else {
+        alert("no se puede ingresar espacios en blanco");
+    }
 }
 
 function READ(x) {
-    push.list(x);
+    if (list.length > 0) {
+        alert (list.join("\n"))
+    } else {
+        alert("La lista esta vacia");
+    }
+    
 }
 
 function UPDATE(x) {
@@ -14,20 +26,37 @@ function UPDATE(x) {
 }
 
 function DELETE(x) {
-    push.list(x);
+    list.unshift(x);
 }
 
-while (menu !== 0) {
-    menu = parseInt(prompt("LISTA DE TAREAS" + "\n1:Crear lista de tareas" + "\n2:Leer lista de tareas" + "\n3:Modificar lista de tareas" + "\n4:Elminar lista tareas" + "\n0:Salir"))
-    switch (menu){
+while (menu <= 4) {
+    menu = parseInt(prompt("LISTA DE TAREAS" + "\n1:Crear lista de tareas" + "\n2:Leer lista de tareas" + "\n3:Modificar lista de tareas" + "\n4:Eliminar lista tareas" + "\n5:Salir"));
+
+    switch (menu) {
         case 1:
-        list.CREATE()
+            CREATE(prompt("Ingresar una nueva tarea"));
+            break;
+        
+        case 2:
+            READ();
+            break;
+
+        case 3:
+
         break;
 
-        case 0:
-            menu = 0
-        break;
+        case 4:
+            DELETE(prompt("Ingresar una tarea a eliminar"));
+            break;
+
+        case 5:
+            menu = 5
+            break;
         
+        default:
+            alert("Opcion invalida");
+            break;
+
     }
 }
 
