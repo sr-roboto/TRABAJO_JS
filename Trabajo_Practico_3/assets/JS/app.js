@@ -7,7 +7,7 @@ function crearLista(x) {
     if (regex.test(x)) {
         list.push(x);
     } else {
-        alert("no se puede ingresar espacios en blanco");
+        alert("No se puede ingresar espacios en blanco");
     }
 }
 
@@ -15,7 +15,7 @@ function leerLista(x) {
     if (list.length > 0) {
         alert(list.join("\n"))
     } else {
-        alert("La lista esta vacia");
+        alert("La lista esta vacía");
     }
 
 }
@@ -26,7 +26,7 @@ function modificarLista(x, y) {
         if (index > -1) {
             list[index] = y;
         } else {
-            alert("No existe esa tarea");
+            alert("No hay registro de esa tarea");
         }
     } else {
         alert("No se puede modificar una tarea que no existe");
@@ -34,16 +34,21 @@ function modificarLista(x, y) {
 }
 
 function eliminarLista(x) {
+    let index = list.indexOf(x);
     if (regex.test(x)) {
-        list.shift(x);
-        alert("Tarea: " + x + "\neliminada con exito")
+        if (index > -1) {
+            list.splice(index, 1);
+            alert("Tarea: " + x + "\neliminada con exito")
+        } else {
+            alert("No hay registro de esa tarea")
+        }
     } else {
         alert("No se puede eliminar una tarea que no existe");
     }
 }
 
 while (menu <= 4) {
-    menu = parseInt(prompt("LISTA DE TAREAS" + "\n1:Crear lista de tareas" + "\n2:Leer lista de tareas" + "\n3:Modificar lista de tareas" + "\n4:Eliminar lista tareas" + "\n5:Salir"));
+    menu = parseInt(prompt("LISTA DE TAREAS" + "\n1: Crear una tarea" + "\n2: Leer lista de tareas" + "\n3: Modificar una tarea" + "\n4: Eliminar una tarea" + "\n5: Salir"));
     switch (menu) {
         case 1:
             crearLista(prompt("Ingresar una nueva tarea"));
@@ -65,6 +70,7 @@ while (menu <= 4) {
 
         case 5:
             menu = 5
+            alert("¡Gracias por usar esta Lista de Tareas!")
             break;
 
         default:
@@ -73,7 +79,3 @@ while (menu <= 4) {
 
     }
 }
-
-
-
-
