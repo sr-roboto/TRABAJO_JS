@@ -26,7 +26,7 @@ function modificarLista(x, y) {
         if (index > -1) {
             list[index] = y;
         } else {
-            alert("No hay registro de esa tarea");
+            alert("No hay registro de esta tarea: " + x);
         }
     } else {
         alert("No se puede modificar una tarea que no existe");
@@ -40,7 +40,7 @@ function eliminarLista(x) {
             list.splice(index, 1);
             alert("Tarea: " + x + "\neliminada con exito")
         } else {
-            alert("No hay registro de esa tarea")
+            alert("No hay registro de esta tarea: " + x)
         }
     } else {
         alert("No se puede eliminar una tarea que no existe");
@@ -59,8 +59,8 @@ while (menu <= 4) {
             break;
 
         case 3:
-            let x = prompt("Ingrese una tarea para modificar");
-            let y = prompt("Ingrese la nueva tarea");
+            let x = prompt("Ingresar una tarea para modificar");
+            let y = prompt("Ingresar la nueva tarea");
             modificarLista(x, y);
             break;
 
