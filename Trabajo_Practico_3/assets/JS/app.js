@@ -26,7 +26,12 @@ function UPDATE(x) {
 }
 
 function DELETE(x) {
-    list.unshift(x);
+    if (regex.test(x)) {
+        list.shift(x);
+        alert("Tarea: " + x + "\neliminada con exito")
+    } else {
+        alert("no se puede eliminar una tarea que no existe");
+    }
 }
 
 while (menu <= 4) {
